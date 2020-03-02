@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shrine"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignUP"></activity>
+        <activity
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page"></activity>
+        <activity android:name=".SignUP" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>

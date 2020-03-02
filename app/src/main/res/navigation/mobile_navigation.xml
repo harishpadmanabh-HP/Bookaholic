@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.hp.bookaholic.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/addbook"
+        android:name="com.hp.bookaholic.ui.AddbookFrag.AddbookFrag"
+        android:label="@string/addbook"
+        tools:layout="@layout/addbookfrag" />
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.hp.bookaholic.ui.Settings.SettingsFrag"
+        android:label="@string/settings"
+        tools:layout="@layout/settingsfrag" />
+</navigation>
