@@ -13,9 +13,15 @@ import androidx.core.view.ViewCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.hp.bookaholic.Models.LoginModel;
+import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -25,6 +31,9 @@ public class Login extends AppCompatActivity {
     private MaterialButton login;
     private MaterialButton signup;
     private ImageView bookicon;
+    String input_phone;
+    String input_password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +73,20 @@ public class Login extends AppCompatActivity {
                 }
             }
             if(noErrors){
+               input_phone=phone.getText().toString();
+               input_password=pass.getText().toString();
+                Retro retro=new Retro();
+                retro.getApi().LOGIN_MODEL_CALL(phone.getText().toString(),pass.getText().toString()).enqueue(new Callback<LoginModel>() {
+                    @Override
+                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginModel> call, Throwable t) {
+
+                    }
+                });
                 startActivity(new Intent(Login.this,HomePage.class));
             }
         });

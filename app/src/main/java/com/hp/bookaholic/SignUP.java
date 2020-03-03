@@ -11,11 +11,19 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.hp.bookaholic.Models.SignupModel;
+import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignUP extends AppCompatActivity {
 
@@ -27,6 +35,7 @@ public class SignUP extends AppCompatActivity {
     private TextInputEditText location;
     private TextInputEditText pass;
     private MaterialButton signup;
+    SignupModel signupModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,7 @@ public class SignUP extends AppCompatActivity {
 
         signup.setOnClickListener(view -> {
             //checking null values for each edittesxt
+            View v=view;
             boolean noErrors = true;
             for (TextInputEditText textInputEditText : textInputEditTexts) {
                 //get strings from each edittext
@@ -54,8 +64,39 @@ public class SignUP extends AppCompatActivity {
             }
             if(noErrors)
             {
+                String input_name=name.getText().toString();
+                String input_email=email.getText().toString();
+                String input_phone=phone.getText().toString();
+                String input_passwod=pass.getText().toString();
+                String input_location=location.getText().toString();
+
+                Retro retro=new Retro();
+                retro.getApi().SIGNUP_MODEL_CALL(name.getText().toString(),
+                        email.getText().toString(),
+                        phone.getText().toString(),
+                        pass.getText().toString(),
+                        location.getText().toString()).enqueue(new Callback<SignupModel>() {
+                    @Override
+                    public void onResponse(Call<SignupModel> call, Response<SignupModel> response) {
+                        signupModel = response.body();
+                        if (signupModel.getStatus().equalsIgnoreCase("success"))
+                        {
+
+                            Snackbar.make(v, "Registered successfully,Sign in to continue", BaseTransientBottomBar.LENGTH_LONG).show();
+                            gotoLogin();
+                        }
+                    else{
+                            Snackbar.make(v,signupModel.getStatus(), BaseTransientBottomBar.LENGTH_LONG).show();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<SignupModel> call, Throwable t) {
+
+                    }
+                });
+
                 //fields are non null
-                gotoLogin();
+
 
 
             }
