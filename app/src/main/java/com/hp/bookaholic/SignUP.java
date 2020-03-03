@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.Models.SignupModel;
 import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
@@ -36,12 +37,14 @@ public class SignUP extends AppCompatActivity {
     private TextInputEditText pass;
     private MaterialButton signup;
     SignupModel signupModel;
+    private AppPreferences appPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         initView();
+
         View rootView = findViewById(android.R.id.content);
 
         //conecting all TextInputEditText as list
@@ -79,9 +82,10 @@ public class SignUP extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<SignupModel> call, Response<SignupModel> response) {
                         signupModel = response.body();
-                        if (signupModel.getStatus().equalsIgnoreCase("success"))
-                        {
 
+                        if (signupModel.getStatus().equalsIgnoreCase("success"))
+
+                        {
                             Snackbar.make(v, "Registered successfully,Sign in to continue", BaseTransientBottomBar.LENGTH_LONG).show();
                             gotoLogin();
                         }

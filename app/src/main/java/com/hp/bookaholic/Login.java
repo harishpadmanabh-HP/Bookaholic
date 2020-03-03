@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -13,6 +14,7 @@ import androidx.core.view.ViewCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.Models.LoginModel;
 import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
@@ -33,7 +35,8 @@ public class Login extends AppCompatActivity {
     private ImageView bookicon;
     String input_phone;
     String input_password;
-
+    LoginModel  loginModel;
+    private AppPreferences appPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initView();
         View rootView = findViewById(android.R.id.content);
+        appPreferences = AppPreferences.getInstance(getApplicationContext(), getResources().getString(R.string.app_name));
 
         //conecting all TextInputEditText as list
         final List<TextInputEditText> textInputEditTexts = Utils.findViewsWithType(
@@ -79,7 +83,21 @@ public class Login extends AppCompatActivity {
                 retro.getApi().LOGIN_MODEL_CALL(phone.getText().toString(),pass.getText().toString()).enqueue(new Callback<LoginModel>() {
                     @Override
                     public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                    loginModel=response.body();
+                     if(loginModel.getStatus().equalsIgnoreCase("Success")){
+                         appPreferences.saveData("id",loginModel.getUser_data().getUser_id());
+                         appPreferences.saveData("in_name",loginModel.getUser_data().getName());
+                         appPreferences.saveData("in_email",loginModel.getUser_data().getEmail());
+                         appPreferences.saveData("in_phone",loginModel.getUser_data().getPhone());
+                         appPreferences.saveData("in_pass",loginModel.getUser_data().getPassword());
+                         appPreferences.saveData("in_location",loginModel.getUser_data().getPostal_address());
 
+                         Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
+
+                         startActivity(new Intent(Login.this,HomePage.class));}
+                     else {
+                         Toast.makeText(Login.this,loginModel.getStatus(), Toast.LENGTH_SHORT).show();
+                     }
                     }
 
                     @Override
@@ -87,7 +105,7 @@ public class Login extends AppCompatActivity {
 
                     }
                 });
-                startActivity(new Intent(Login.this,HomePage.class));
+
             }
         });
 
