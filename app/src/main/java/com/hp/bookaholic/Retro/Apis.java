@@ -2,6 +2,7 @@ package com.hp.bookaholic.Retro;
 
 import android.util.Log;
 
+import com.hp.bookaholic.Models.BooklistModel;
 import com.hp.bookaholic.Models.LoginModel;
 import com.hp.bookaholic.Models.SignupModel;
 
@@ -21,5 +22,7 @@ public interface Apis {
                                        @Query("phone")String phone,
                                        @Query("password")String password,
                                        @Query("postal_address")String address);
+    @GET("view_approved_book.php?status=1")
+    Call<BooklistModel>BOOKLIST_MODEL_CALL();
 
 }
