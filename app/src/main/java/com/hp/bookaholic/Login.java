@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity {
     private ImageView bookicon;
     String input_phone;
     String input_password;
+    String check;
     LoginModel  loginModel;
     private AppPreferences appPreferences;
 
