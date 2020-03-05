@@ -3,6 +3,7 @@ package com.hp.bookaholic.Retro;
 import android.util.Log;
 
 import com.hp.bookaholic.Models.AddBookModel;
+import com.hp.bookaholic.Models.BookdetailsModel;
 import com.hp.bookaholic.Models.BooklistModel;
 import com.hp.bookaholic.Models.LoginModel;
 import com.hp.bookaholic.Models.SignupModel;
@@ -45,5 +46,11 @@ public interface Apis {
                                            @Part("ifsc_code") RequestBody ifsc_code,
                                            @Part("branch") RequestBody branch,
                                            @Part MultipartBody.Part file);
+
+
+    @GET("view_particular_book.php?")
+    Call<BookdetailsModel>BOOKDETAILS_MODEL_CALL(@Query("book_id")String id);
+
+
 
 }

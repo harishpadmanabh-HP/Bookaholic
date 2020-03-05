@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.Book_details">
+
+    <!-- TODO: Update blank fragment layout -->
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bookdetails_name"
+android:textSize="20dp"
+
+    android:text="name"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookdetails_author"
+        android:textSize="20dp"
+android:layout_marginTop="20dp"
+        android:text="name"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookdetails_lenddays"
+        android:textSize="20dp"
+android:layout_marginTop="40dp"
+        android:text="name"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookdetails_extradays"
+        android:textSize="20dp"
+android:layout_marginTop="60dp"
+        android:text="name"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookdetails_img"
+        android:layout_marginTop="80dp"/>
+</FrameLayout>

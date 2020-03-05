@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.Adapter.Adapter;
 import com.hp.bookaholic.Models.BooklistModel;
 import com.hp.bookaholic.R;
@@ -30,13 +31,14 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     BooklistModel booklistModel;
-
+    private AppPreferences appPreferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = root.findViewById(R.id.r_viewbooklist);
+        appPreferences = AppPreferences.getInstance(getContext(), getResources().getString(R.string.app_name));
         Retro retro = new Retro();
         retro.getApi().BOOKLIST_MODEL_CALL().enqueue(new Callback<BooklistModel>() {
             @Override
