@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_book_dtails"
             app:destination="@id/book_dtails" />
+        <action
+            android:id="@+id/action_navigation_home_to_testffrag"
+            app:destination="@id/testffrag" />
     </fragment>
 
     <fragment
@@ -31,4 +34,9 @@
         android:name="com.hp.bookaholic.Book_dtails"
         android:label="fragment_book_dtails"
         tools:layout="@layout/fragment_book_dtails" />
+    <fragment
+        android:id="@+id/testffrag"
+        android:name="com.hp.bookaholic.testffrag"
+        android:label="fragment_testffrag"
+        tools:layout="@layout/fragment_testffrag" />
 </navigation>

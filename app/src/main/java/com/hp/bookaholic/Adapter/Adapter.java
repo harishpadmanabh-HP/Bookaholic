@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +27,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.My_vh> {
     Context context;
     BooklistModel booklistModel;
 AppPreferences appPreferences;
+NavController navController = null;
     public Adapter(Context context, BooklistModel booklistModel) {
         this.context = context;
         this.booklistModel = booklistModel;
@@ -33,40 +36,30 @@ AppPreferences appPreferences;
     @NonNull
     @Override
     public My_vh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.categorylayout, parent, false);
+        View searchview=LayoutInflater.from(parent.getContext()).inflate(R.layout.categorylayout, parent, false);
         appPreferences    = AppPreferences.getInstance(context, context.getResources().getString(R.string.app_name));
 
 
-        return new My_vh(view);
+        return new My_vh(searchview);
     }
 
     @Override
     public void onBindViewHolder(@NonNull My_vh holder, int position) {
-        holder.book_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                appPreferences.saveData("book_id",booklistModel.getBook_Details().get(position).getBook_id());
-                appPreferences.saveData("user_id",booklistModel.getBook_Details().get(position).getUser_id());
-
-
-Navigation.createNavigateOnClickListener(R.id.action_navigation_home_to_book_dtails);
-
-            }
-        });
         Glide.with(context)
                 .load(booklistModel.getBook_Details().get(position).getPhoto())
                 .placeholder(R.drawable.bookround)
                 .into(holder.book_image);
 
         holder.book_name.setText(booklistModel.getBook_Details().get(position).getBook_name());
-holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
+        Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
         appPreferences.saveData("book_id",booklistModel.getBook_Details().get(position).getBook_id());
         appPreferences.saveData("user_id",booklistModel.getBook_Details().get(position).getUser_id());
 
-        NavHostFragment.findNavController(new Book_dtails());
-
+        Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_testffrag);
 
     }
 });

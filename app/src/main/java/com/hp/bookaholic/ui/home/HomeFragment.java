@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.Adapter.Adapter;
+import com.hp.bookaholic.Adapter.BookList_Adapter;
 import com.hp.bookaholic.Models.BooklistModel;
 import com.hp.bookaholic.R;
 import com.hp.bookaholic.Retro.Retro;
@@ -48,9 +49,9 @@ public class HomeFragment extends Fragment {
                     Log.e("RESPONSE", booklistModel.getStatus());
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
                     StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
-
+                 // recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-                    recyclerView.setAdapter(new Adapter(getContext(), booklistModel));
+                    recyclerView.setAdapter(new BookList_Adapter( booklistModel,getActivity()));
                 }else
                 {
                     Toast.makeText(getContext(), " Sorry ! No Books Found ", Toast.LENGTH_SHORT).show();

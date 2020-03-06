@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,24 +49,27 @@ public class Book_dtails extends Fragment {
         View root=inflater.inflate(R.layout.fragment_book_dtails, container, false);
         appPreferences = AppPreferences.getInstance(getContext(), getResources().getString(R.string.app_name));
 
+        Log.e("BOOK ID",appPreferences.getData("book_id"));
+
         initView(root);
         Retro retro=new Retro();
-        retro.getApi().BOOKDETAILS_MODEL_CALL(appPreferences.getData("4")).enqueue(new Callback<BookdetailsModel>() {
+        retro.getApi().BOOKDETAILS_MODEL_CALL(appPreferences.getData("book_id")).enqueue(new Callback<BookdetailsModel>() {
             @Override
             public void onResponse(Call<BookdetailsModel> call, Response<BookdetailsModel> response) {
                 bookdetailsModel=response.body();
+                Log.e("RESPONSE", String.valueOf(bookdetailsModel));
 
-                name.setText(bookdetailsModel.getBook_Details().get(0).getBook_name());
-                author.setText(bookdetailsModel.getBook_Details().get(0).getAuthor());
-
-                Glide.with(getContext())
-                        .load(bookdetailsModel.getBook_Details().get(0).getPhoto())
-                        .placeholder(R.drawable.bookround)
-                        .into(image);
-                lenddays.setText(bookdetailsModel.getBook_Details().get(0).getLend_days());
-                extradays.setText(bookdetailsModel.getBook_Details().get(0).getExtra_days());
-
-            }
+//                name.setText(bookdetailsModel.getBook_Details().get(0).getBook_name());
+//                author.setText(bookdetailsModel.getBook_Details().get(0).getAuthor());
+//
+//                Glide.with(getContext())
+//                        .load(bookdetailsModel.getBook_Details().get(0).getPhoto())
+//                        .placeholder(R.drawable.bookround)
+//                        .into(image);
+//                lenddays.setText(bookdetailsModel.getBook_Details().get(0).getLend_days());
+//                extradays.setText(bookdetailsModel.getBook_Details().get(0).getExtra_days());
+//
+           }
 
             @Override
             public void onFailure(Call<BookdetailsModel> call, Throwable t) {
