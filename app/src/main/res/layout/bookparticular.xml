@@ -89,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Payment Info"
-                android:textSize="20dp"
-                android:fontFamily="@font/concert"
+                android:textSize="25dp"
+                android:fontFamily="@font/carter"
                 android:textColor="#000"
                 android:layout_gravity="center"
                 android:layout_marginStart="12dp"
@@ -156,6 +156,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/buy"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="20dp"
