@@ -1,4 +1,4 @@
-package com.hp.bookaholic.Models;
+package com.hp.bookaholic.EndUsers.Models;
 
 public class SignupModel {
     /**

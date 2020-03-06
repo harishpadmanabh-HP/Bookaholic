@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".SignUP">
+    tools:context=".EndUsers.SignUP">
 
     <ImageView
         android:transitionName="bookicon"
@@ -186,7 +186,8 @@
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="@color/icontint"
                 android:text="signup"
-                android:translationZ="35dp" />
+                android:translationZ="35dp"
+                android:layout_marginRight="20dp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

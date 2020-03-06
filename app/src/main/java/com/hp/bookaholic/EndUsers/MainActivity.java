@@ -1,4 +1,4 @@
-package com.hp.bookaholic;
+package com.hp.bookaholic.EndUsers;
 
 import android.content.Intent;
 import android.os.Build;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
+
+import com.hp.bookaholic.R;
 
 public class MainActivity extends AppCompatActivity {
 

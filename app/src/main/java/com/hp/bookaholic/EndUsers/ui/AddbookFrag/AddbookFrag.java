@@ -1,4 +1,4 @@
-package com.hp.bookaholic.ui.AddbookFrag;
+package com.hp.bookaholic.EndUsers.ui.AddbookFrag;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -26,16 +26,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.hp.bookaholic.BuildConfig;
-import com.hp.bookaholic.Models.AddBookModel;
+import com.hp.bookaholic.EndUsers.Models.AddBookModel;
 import com.hp.bookaholic.R;
 import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -221,6 +218,11 @@ public class AddbookFrag extends Fragment {
                 c.moveToFirst();
                 int columnIndex = c.getColumnIndex(filePath[0]);
                 String picturePath = c.getString(columnIndex);
+                imgFile=new File(picturePath);
+                if(imgFile.exists())
+                {isPhototaken=true;
+                   // Toast.makeText(getActivity(), "gallerrrrryyyyyyyy", Toast.LENGTH_SHORT).show();
+                }
                 c.close();
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
                 Log.e("path************", picturePath+"");

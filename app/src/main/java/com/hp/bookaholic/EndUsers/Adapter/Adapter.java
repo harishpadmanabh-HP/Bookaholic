@@ -1,8 +1,6 @@
-package com.hp.bookaholic.Adapter;
+package com.hp.bookaholic.EndUsers.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +11,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.harishpadmanabh.apppreferences.AppPreferences;
-import com.hp.bookaholic.Book_dtails;
-import com.hp.bookaholic.Models.BookdetailsModel;
-import com.hp.bookaholic.Models.BooklistModel;
+import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.R;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.My_vh> {

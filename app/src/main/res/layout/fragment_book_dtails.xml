@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Book_dtails">
-<include layout="@layout/book_details_design"
+    tools:context=".EndUsers.ui.home.Book_dtails">
+<include layout="@layout/bookparticular"
     />
 </FrameLayout>

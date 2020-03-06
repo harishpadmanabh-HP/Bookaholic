@@ -1,4 +1,4 @@
-package com.hp.bookaholic;
+package com.hp.bookaholic.EndUsers;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,7 +16,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.harishpadmanabh.apppreferences.AppPreferences;
-import com.hp.bookaholic.Models.SignupModel;
+import com.hp.bookaholic.EndUsers.Models.SignupModel;
+import com.hp.bookaholic.R;
 import com.hp.bookaholic.Retro.Retro;
 import com.hp.bookaholic.Utils.Utils;
 

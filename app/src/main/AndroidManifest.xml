@@ -16,18 +16,18 @@
         android:theme="@style/Theme.Shrine"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".HomePage"
+            android:name=".EndUsers.HomePage"
             android:label="@string/title_activity_home_page">
+
+        </activity>
+        <activity android:name=".EndUsers.SignUP" />
+        <activity android:name=".EndUsers.Login" />
+        <activity android:name=".EndUsers.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".SignUP" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
-
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"

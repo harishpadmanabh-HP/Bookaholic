@@ -1,8 +1,9 @@
-package com.hp.bookaholic;
+package com.hp.bookaholic.EndUsers;
 
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hp.bookaholic.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

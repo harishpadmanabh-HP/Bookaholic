@@ -1,12 +1,10 @@
 package com.hp.bookaholic.Retro;
 
-import android.util.Log;
-
-import com.hp.bookaholic.Models.AddBookModel;
-import com.hp.bookaholic.Models.BookdetailsModel;
-import com.hp.bookaholic.Models.BooklistModel;
-import com.hp.bookaholic.Models.LoginModel;
-import com.hp.bookaholic.Models.SignupModel;
+import com.hp.bookaholic.EndUsers.Models.AddBookModel;
+import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
+import com.hp.bookaholic.EndUsers.Models.BooklistModel;
+import com.hp.bookaholic.EndUsers.Models.LoginModel;
+import com.hp.bookaholic.EndUsers.Models.SignupModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
