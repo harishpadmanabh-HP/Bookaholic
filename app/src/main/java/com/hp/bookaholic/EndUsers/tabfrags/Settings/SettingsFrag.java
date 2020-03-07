@@ -1,5 +1,6 @@
 package com.hp.bookaholic.EndUsers.tabfrags.Settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.R;
+import com.hp.bookaholic.admin.AdminLogin;
 
 public class SettingsFrag extends Fragment {
 
@@ -28,6 +30,7 @@ public class SettingsFrag extends Fragment {
         });
         admin.setOnClickListener(v -> {
 
+            startActivity(new Intent(getContext(), AdminLogin.class));
         });
         return root;
     }

@@ -6,10 +6,13 @@ import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
 import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.EndUsers.Models.LoginModel;
 import com.hp.bookaholic.EndUsers.Models.SignupModel;
+import com.hp.bookaholic.admin.modelsAdmin.AdminLoginModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -53,6 +56,13 @@ public interface Apis {
 
     @GET("view_available_book.php")
     Call<AvailableBookListModel>AVAILABLE_BOOK_LIST_MODEL_CALL();
+
+
+    @FormUrlEncoded
+    @POST("admin_login.php")
+    Call<AdminLoginModel> ADMIN_LOGIN_MODEL_CALL(@Field("username") String username,
+                                                 @Field("password") String password);
+
 
 
 
