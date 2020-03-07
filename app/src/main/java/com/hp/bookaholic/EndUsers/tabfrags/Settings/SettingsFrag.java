@@ -1,4 +1,4 @@
-package com.hp.bookaholic.EndUsers.ui.Settings;
+package com.hp.bookaholic.EndUsers.tabfrags.Settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

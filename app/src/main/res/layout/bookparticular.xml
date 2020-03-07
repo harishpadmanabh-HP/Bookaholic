@@ -70,6 +70,17 @@
         android:layout_marginTop="10dp"
         android:id="@+id/extralendDays"
         android:layout_marginLeft="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rent "
+            android:textSize="20dp"
+            android:fontFamily="@font/concert"
+            android:textColor="#333232"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rent"
+            android:layout_marginLeft="12dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_marginTop="18dp"

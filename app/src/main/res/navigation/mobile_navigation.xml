@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.hp.bookaholic.EndUsers.ui.home.HomeFragment"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_book_dtails"
             app:destination="@id/book_dtails" />
@@ -20,18 +20,18 @@
 
     <fragment
         android:id="@+id/addbook"
-        android:name="com.hp.bookaholic.EndUsers.ui.AddbookFrag.AddbookFrag"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.AddbookFrag.AddbookFrag"
         android:label="@string/addbook"
         tools:layout="@layout/addbookfrag" />
 
     <fragment
         android:id="@+id/settings"
-        android:name="com.hp.bookaholic.EndUsers.ui.Settings.SettingsFrag"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.Settings.SettingsFrag"
         android:label="@string/settings"
         tools:layout="@layout/settingsfrag" />
     <fragment
         android:id="@+id/book_dtails"
-        android:name="com.hp.bookaholic.EndUsers.ui.home.Book_dtails"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.home.Book_dtails"
         android:label="fragment_book_dtails"
         tools:layout="@layout/fragment_book_dtails" />
     <fragment
@@ -39,4 +39,9 @@
         android:name="com.hp.bookaholic.EndUsers.testffrag"
         android:label="fragment_testffrag"
         tools:layout="@layout/fragment_testffrag" />
+    <fragment
+        android:id="@+id/myBooks"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.mybooks.MyBooksFragment"
+        android:label="@string/mybooks"
+        tools:layout="@layout/fragment_my_books" />
 </navigation>

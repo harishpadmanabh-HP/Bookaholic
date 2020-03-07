@@ -4,9 +4,10 @@ import java.util.List;
 
 public class BookdetailsModel {
 
+
     /**
      * status : success
-     * Book_Details : [{"book_id":"3","book_name":"Davinci Code","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/463772-bookimage.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1"},{"book_id":"2","book_name":"Twilight","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1"},{"book_id":"4","book_name":"Harry Potter","author":"J K ROWLING","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/583990-bookimage.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1"},{"book_id":"5","book_name":"Two states","author":"Chetan bagat","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/950208-2states.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1"},{"book_id":"6","book_name":"van helsin","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/475302-bookaholic202003032241084381874537362387243.jpg","lend_days":"12","extra_days":"2","postal_address":"pattom","account_no":"1234567890","ifsc_code":"AHQJQ123","branch":"pattom","status":"0"}]
+     * Book_Details : [{"book_id":"2","book_name":"Twilight","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"200"}]
      */
 
     private String status;
@@ -30,11 +31,11 @@ public class BookdetailsModel {
 
     public static class BookDetailsBean {
         /**
-         * book_id : 3
-         * book_name : Davinci Code
+         * book_id : 2
+         * book_name : Twilight
          * author : peter
          * user_id : 1
-         * photo : http://srishti-systems.info/projects/BookLenging_App/uploads/463772-bookimage.jpg
+         * photo : http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg
          * lend_days : 30
          * extra_days : 2
          * postal_address : Naranammoozhy
@@ -42,6 +43,7 @@ public class BookdetailsModel {
          * ifsc_code : 3456
          * branch : Athikayam
          * status : 1
+         * price : 200
          */
 
         private String book_id;
@@ -56,6 +58,7 @@ public class BookdetailsModel {
         private String ifsc_code;
         private String branch;
         private String status;
+        private String price;
 
         public String getBook_id() {
             return book_id;
@@ -151,6 +154,14 @@ public class BookdetailsModel {
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
         }
     }
 }

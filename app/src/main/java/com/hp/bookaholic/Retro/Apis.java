@@ -1,6 +1,7 @@
 package com.hp.bookaholic.Retro;
 
 import com.hp.bookaholic.EndUsers.Models.AddBookModel;
+import com.hp.bookaholic.EndUsers.Models.AvailableBookListModel;
 import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
 import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.EndUsers.Models.LoginModel;
@@ -43,11 +44,15 @@ public interface Apis {
                                            @Part("account_no") RequestBody account_no,
                                            @Part("ifsc_code") RequestBody ifsc_code,
                                            @Part("branch") RequestBody branch,
+                                           @Part("price") RequestBody price,
                                            @Part MultipartBody.Part file);
 
 
     @GET("view_particular_book.php?")
     Call<BookdetailsModel>BOOKDETAILS_MODEL_CALL(@Query("book_id")String id);
+
+    @GET("view_available_book.php")
+    Call<AvailableBookListModel>AVAILABLE_BOOK_LIST_MODEL_CALL();
 
 
 

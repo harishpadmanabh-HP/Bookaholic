@@ -1,4 +1,4 @@
-package com.hp.bookaholic.EndUsers.ui.home;
+package com.hp.bookaholic.EndUsers.tabfrags.home;
 
 
 import android.os.Bundle;
@@ -40,6 +40,8 @@ public class Book_dtails extends Fragment {
     private TextView accNo;
     private TextView ifsc;
     private TextView branch;
+    private TextView rent;
+
 
 
     public Book_dtails() {
@@ -62,17 +64,26 @@ public class Book_dtails extends Fragment {
                 bookdetailsModel = response.body();
 
                 appPreferences.saveData("user_id",bookdetailsModel.getBook_Details().get(0).getUser_id());
+             if(bookdetailsModel != null) {
+                 if (bookdetailsModel.getStatus().equalsIgnoreCase("success")) {
+                     Glide.with(getContext()).load(bookdetailsModel.getBook_Details().get(0).getPhoto()).into(bookimg);
+                     bookname.setText(bookdetailsModel.getBook_Details().get(0).getBook_name());
+                     author.setText("Author : " + bookdetailsModel.getBook_Details().get(0).getAuthor());
+                     lendDays.setText("Lend Days : " + bookdetailsModel.getBook_Details().get(0).getLend_days());
+                     extralendDays.setText("Extra Days : " + bookdetailsModel.getBook_Details().get(0).getExtra_days());
+                     postaladd.setText("Address : " + bookdetailsModel.getBook_Details().get(0).getPostal_address());
+                     accNo.setText("Account No : " + bookdetailsModel.getBook_Details().get(0).getAccount_no());
+                     ifsc.setText("IFSC : " + bookdetailsModel.getBook_Details().get(0).getIfsc_code());
+                     branch.setText("Branch : " + bookdetailsModel.getBook_Details().get(0).getBranch());
+                     rent.setText("Rent : " + bookdetailsModel.getBook_Details().get(0).getPrice() + " Rs");
+                 } else {
+                     Toast.makeText(getContext(), "Book not found", Toast.LENGTH_SHORT).show();
+                 }
+             }else
+             {
+                 Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
 
-                Glide.with(getContext()).load(bookdetailsModel.getBook_Details().get(0).getPhoto()).into(bookimg);
-                bookname.setText(bookdetailsModel.getBook_Details().get(0).getBook_name());
-                author.setText("Author : " + bookdetailsModel.getBook_Details().get(0).getAuthor());
-                lendDays.setText("Lend Days : " + bookdetailsModel.getBook_Details().get(0).getLend_days());
-                extralendDays.setText("Extra Days : " + bookdetailsModel.getBook_Details().get(0).getExtra_days());
-                postaladd.setText("Address : " + bookdetailsModel.getBook_Details().get(0).getPostal_address());
-                accNo.setText("Account No : " + bookdetailsModel.getBook_Details().get(0).getAccount_no());
-                ifsc.setText("IFSC : " + bookdetailsModel.getBook_Details().get(0).getIfsc_code());
-                branch.setText("Branch : " + bookdetailsModel.getBook_Details().get(0).getBranch());
-
+             }
             }
 
             @Override
@@ -98,6 +109,8 @@ public class Book_dtails extends Fragment {
         accNo = root.findViewById(R.id.accNo);
         ifsc = root.findViewById(R.id.ifsc);
         branch = root.findViewById(R.id.branch);
+        rent = root.findViewById(R.id.rent);
+
     }
 }
 

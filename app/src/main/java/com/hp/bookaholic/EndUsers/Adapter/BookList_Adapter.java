@@ -14,20 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.harishpadmanabh.apppreferences.AppPreferences;
+import com.hp.bookaholic.EndUsers.Models.AvailableBookListModel;
 import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.R;
 
 public class BookList_Adapter extends RecyclerView.Adapter<BookList_Adapter.BookVH> {
     private AppPreferences appPreferences;
-
-    public BookList_Adapter(BooklistModel booklistModel, Context context) {
-        this.booklistModel = booklistModel;
-        this.context = context;
-    }
-
-    BooklistModel booklistModel;
+    AvailableBookListModel availableBookListModel;
     Context context;
 
+    public BookList_Adapter(AvailableBookListModel availableBookListModel, Context context) {
+        this.availableBookListModel = availableBookListModel;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -42,11 +41,11 @@ public class BookList_Adapter extends RecyclerView.Adapter<BookList_Adapter.Book
     @Override
     public void onBindViewHolder(@NonNull BookVH holder, int position) {
         Glide.with(context)
-                .load(booklistModel.getBook_Details().get(position).getPhoto())
+                .load(availableBookListModel.getAvailable_Details().get(position).getPhoto())
                 .placeholder(R.drawable.bookround)
                 .into(holder.bookimg);
 
-        holder.bookname.setText(booklistModel.getBook_Details().get(position).getBook_name());
+        holder.bookname.setText(availableBookListModel.getAvailable_Details().get(position).getBook_name());
 //
 //holder.bookimg.setOnClickListener(v -> {
 //  //  Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
@@ -59,8 +58,8 @@ public class BookList_Adapter extends RecyclerView.Adapter<BookList_Adapter.Book
 
         holder.cardView.setOnClickListener(v -> {
 
-            appPreferences.saveData("book_id", booklistModel.getBook_Details().get(position).getBook_id());
-            appPreferences.saveData("user_id", booklistModel.getBook_Details().get(position).getUser_id());
+            appPreferences.saveData("book_id", availableBookListModel.getAvailable_Details().get(position).getBook_id());
+            appPreferences.saveData("user_id", availableBookListModel.getAvailable_Details().get(position).getUser_id());
 
             Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_book_dtails);
 
@@ -70,7 +69,7 @@ public class BookList_Adapter extends RecyclerView.Adapter<BookList_Adapter.Book
 
     @Override
     public int getItemCount() {
-        return booklistModel.getBook_Details().size();
+        return availableBookListModel.getAvailable_Details().size();
     }
 
     class BookVH extends RecyclerView.ViewHolder {

@@ -2,15 +2,14 @@ package com.hp.bookaholic.EndUsers.Models;
 
 import java.util.List;
 
-public class BooklistModel {
-
+public class AvailableBookListModel {
     /**
      * status : success
-     * Book_Details : [{"book_id":"3","book_name":"Davinci Code","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/463772-bookimage.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"0"},{"book_id":"2","book_name":"Twilight","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"200"},{"book_id":"4","book_name":"Harry Potter","author":"J K ROWLING","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/583990-bookimage.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"0"},{"book_id":"5","book_name":"Two states","author":"Chetan bagat","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/950208-2states.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"1000"},{"book_id":"9","book_name":"FMGE NEET PG Review 2019","author":" Armaan Chourasiya (Bhupendra)","user_id":"4","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/823986-b9789389587906.jpg","lend_days":"100","extra_days":"10","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"500"}]
+     * Available_Details : [{"book_id":"2","book_name":"Twilight","author":"peter","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"200"},{"book_id":"4","book_name":"Harry Potter","author":"J K ROWLING","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/583990-bookimage.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"0"},{"book_id":"5","book_name":"Two states","author":"Chetan bagat","user_id":"1","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/950208-2states.jpg","lend_days":"30","extra_days":"2","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"1000"},{"book_id":"9","book_name":"FMGE NEET PG Review 2019","author":" Armaan Chourasiya (Bhupendra)","user_id":"4","photo":"http://srishti-systems.info/projects/BookLenging_App/uploads/823986-b9789389587906.jpg","lend_days":"100","extra_days":"10","postal_address":"Naranammoozhy","account_no":"7098654321546778","ifsc_code":"3456","branch":"Athikayam","status":"1","price":"500"}]
      */
 
     private String status;
-    private List<BookDetailsBean> Book_Details;
+    private List<AvailableDetailsBean> Available_Details;
 
     public String getStatus() {
         return status;
@@ -20,21 +19,21 @@ public class BooklistModel {
         this.status = status;
     }
 
-    public List<BookDetailsBean> getBook_Details() {
-        return Book_Details;
+    public List<AvailableDetailsBean> getAvailable_Details() {
+        return Available_Details;
     }
 
-    public void setBook_Details(List<BookDetailsBean> Book_Details) {
-        this.Book_Details = Book_Details;
+    public void setAvailable_Details(List<AvailableDetailsBean> Available_Details) {
+        this.Available_Details = Available_Details;
     }
 
-    public static class BookDetailsBean {
+    public static class AvailableDetailsBean {
         /**
-         * book_id : 3
-         * book_name : Davinci Code
+         * book_id : 2
+         * book_name : Twilight
          * author : peter
          * user_id : 1
-         * photo : http://srishti-systems.info/projects/BookLenging_App/uploads/463772-bookimage.jpg
+         * photo : http://srishti-systems.info/projects/BookLenging_App/uploads/305832-twilight.jpg
          * lend_days : 30
          * extra_days : 2
          * postal_address : Naranammoozhy
@@ -42,7 +41,7 @@ public class BooklistModel {
          * ifsc_code : 3456
          * branch : Athikayam
          * status : 1
-         * price : 0
+         * price : 200
          */
 
         private String book_id;

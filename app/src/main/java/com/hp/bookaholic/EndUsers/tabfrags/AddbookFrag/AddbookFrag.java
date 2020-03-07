@@ -1,4 +1,4 @@
-package com.hp.bookaholic.EndUsers.ui.AddbookFrag;
+package com.hp.bookaholic.EndUsers.tabfrags.AddbookFrag;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -59,6 +59,8 @@ public class AddbookFrag extends Fragment {
     private TextInputEditText ifsc;
     private TextInputLayout outlinedTextField;
     private TextInputEditText branch;
+    private TextInputEditText price;
+
     private Button addpic;
     private Button requestbook;
     File filedp;
@@ -112,6 +114,8 @@ public class AddbookFrag extends Fragment {
                 RequestBody ifscRB = RequestBody.create(MediaType.parse("text/plain"), ifsc.getText().toString());
                 RequestBody branchRB = RequestBody.create(MediaType.parse("text/plain"), branch.getText().toString());
                 RequestBody uidRB = RequestBody.create(MediaType.parse("text/plain"),"1");
+                RequestBody priceRB = RequestBody.create(MediaType.parse("text/plain"), price.getText().toString());
+
 
                 try {
                     filePart = MultipartBody.Part.createFormData("avatar", imgFile.getName(), RequestBody.create(MediaType.parse("image/*"), imgFile));
@@ -122,7 +126,7 @@ public class AddbookFrag extends Fragment {
                 }
 
                 new Retro().getApi().ADD_BOOK_MODEL_CALL(booknameRB,
-                        authorRB,uidRB,lenddaysRB,extraRB,postaladdRB,accnoRB,ifscRB,branchRB,filePart).enqueue(new Callback<AddBookModel>() {
+                        authorRB,uidRB,lenddaysRB,extraRB,postaladdRB,accnoRB,ifscRB,branchRB,priceRB,filePart).enqueue(new Callback<AddBookModel>() {
                     @Override
                     public void onResponse(Call<AddBookModel> call, Response<AddBookModel> response) {
                         AddBookModel addBookModel = response.body();
@@ -168,6 +172,7 @@ public class AddbookFrag extends Fragment {
         branch = root.findViewById(R.id.branch);
         addpic = root.findViewById(R.id.addpic);
         requestbook = root.findViewById(R.id.requestbook);
+        price=root.findViewById(R.id.price);
     }
     private void selectImage() {
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
