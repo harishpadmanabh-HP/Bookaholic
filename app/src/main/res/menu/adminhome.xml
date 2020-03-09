@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item  android:id="@+id/approve_books_frag"
+        android:title="Approve Books"
+        android:icon="@drawable/ic_assignment_turned_in_black_24dp"/>
+
+    <item  android:id="@+id/lendRequestFrag"
+        android:title="Lend Requests"
+        android:icon="@drawable/ic_wrap_text_black_24dp"/>
+
+</menu>

@@ -1,5 +1,6 @@
 package com.hp.bookaholic.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,6 +45,13 @@ public class AdminLogin extends AppCompatActivity {
                 rootView, TextInputEditText.class);
 
 
+        //....seting creds
+
+        phone.setText("admin@gmail.com");
+        pass.setText("admin");
+        //....setting creds ends
+
+
         login.setOnClickListener(v -> {
             //checking null values for each edittesxt
             View view=v;
@@ -66,10 +74,14 @@ public class AdminLogin extends AppCompatActivity {
                     public void onResponse(Call<AdminLoginModel> call, Response<AdminLoginModel> response) {
                         AdminLoginModel adminLoginModel=response.body();
                         if(adminLoginModel.getStatus().equalsIgnoreCase("success")){
-                            Toast.makeText(AdminLogin.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminLogin.this, "Successfully Logged in as ADMIN", Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(AdminLogin.this,AdminHome.class));
+
                         }else
                         {
                             Toast.makeText(AdminLogin.this,adminLoginModel.getStatus() , Toast.LENGTH_SHORT).show();
+
                         }
                     }
 

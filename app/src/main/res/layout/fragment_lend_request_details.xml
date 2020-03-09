@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.fragments.LendRequestDetails">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.github.florent37.shapeofview.shapes.ArcView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:elevation="24dp"
+                android:id="@+id/rootlay"
+                app:shape_arc_height="25dp"
+                app:shape_arc_position="bottom">
+
+                <!-- YOUR CONTENT -->
+                <ImageView
+                    android:id="@+id/bookimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/books"
+                    android:scaleType="fitXY"
+                    />
+
+            </com.github.florent37.shapeofview.shapes.ArcView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book name"
+                android:textSize="25dp"
+                android:fontFamily="@font/carter"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="12dp"
+                android:id="@+id/bookname"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Author"
+                android:textSize="20dp"
+                android:fontFamily="@font/concert"
+                android:textColor="#000"
+                android:layout_marginStart="12dp"
+                android:id="@+id/author"
+                android:layout_marginLeft="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book lend days"
+                android:textSize="20dp"
+                android:fontFamily="@font/concert"
+                android:textColor="#000"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/lendDays"
+                android:layout_marginLeft="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extra lend days"
+                android:textSize="20dp"
+                android:fontFamily="@font/concert"
+                android:textColor="#333232"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/extralendDays"
+                android:layout_marginLeft="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rent "
+                android:textSize="20dp"
+                android:fontFamily="@font/concert"
+                android:textColor="#333232"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/rent"
+                android:layout_marginLeft="12dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:elevation="20dp"
+                app:cardCornerRadius="20dp"
+                android:translationZ="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Owner Info"
+                        android:textSize="25dp"
+                        android:fontFamily="@font/carter"
+                        android:textColor="#000"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Owner  Name "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/name"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/email"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/phone"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Address "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/address"
+                        android:layout_marginLeft="12dp" />
+
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:elevation="20dp"
+                app:cardCornerRadius="20dp"
+                android:translationZ="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Info"
+                        android:textSize="25dp"
+                        android:fontFamily="@font/carter"
+                        android:textColor="#000"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Postal Address "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/postaladd"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Account Number "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/accNo"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="IFSC"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/ifsc"
+                        android:layout_marginLeft="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Branch "
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/concert"
+                        android:textColor="#000"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/branch"
+                        android:layout_marginLeft="12dp" />
+
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lend"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:backgroundTint="#8BC34A"
+                android:text="Lend THIS BOOK "
+                app:cornerRadius="10dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="#F31302"
+                android:text="Reject THIS Lend request "
+                app:cornerRadius="10dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav"
+    app:startDestination="@id/approve_books_frag">
+
+    <fragment
+        android:id="@+id/approve_books_frag"
+        android:name="com.hp.bookaholic.admin.fragments.Approve_books_frag"
+        android:label="fragment_approve_books_frag"
+        tools:layout="@layout/fragment_approve_books_frag" >
+        <action
+            android:id="@+id/action_approve_books_frag_to_approvalFrag"
+            app:destination="@id/approvalFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/lendRequestFrag"
+        android:name="com.hp.bookaholic.admin.fragments.LendRequestFrag"
+        android:label="fragment_lend_request"
+        tools:layout="@layout/fragment_lend_request" >
+        <action
+            android:id="@+id/action_lendRequestFrag_to_lendRequestDetails"
+            app:destination="@id/lendRequestDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/approvalFrag"
+        android:name="com.hp.bookaholic.admin.fragments.ApprovalFrag"
+        android:label="fragment_approval"
+        tools:layout="@layout/fragment_approval" >
+        <action
+            android:id="@+id/action_approvalFrag_to_approve_books_frag"
+            app:destination="@id/approve_books_frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/lendRequestDetails"
+        android:name="com.hp.bookaholic.admin.fragments.LendRequestDetails"
+        android:label="fragment_lend_request_details"
+        tools:layout="@layout/fragment_lend_request_details" >
+        <action
+            android:id="@+id/action_lendRequestDetails_to_lendRequestFrag"
+            app:destination="@id/lendRequestFrag" />
+    </fragment>
+</navigation>

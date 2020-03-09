@@ -96,7 +96,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
-                    android:hint="Lend Days"
+                    android:hint="Lend Price"
                     app:boxStrokeColor="@color/colorAccent"
                     app:errorEnabled="true">
 
@@ -117,7 +117,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
-                    android:hint="Extra days to lend"
+                    android:hint="Extra price per day after lend period"
                     app:boxStrokeColor="@color/colorAccent"
                     app:errorEnabled="true">
 

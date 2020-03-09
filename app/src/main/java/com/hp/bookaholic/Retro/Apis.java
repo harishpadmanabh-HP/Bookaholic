@@ -1,12 +1,18 @@
 package com.hp.bookaholic.Retro;
 
 import com.hp.bookaholic.EndUsers.Models.AddBookModel;
+import com.hp.bookaholic.EndUsers.Models.Avail_Set_model;
 import com.hp.bookaholic.EndUsers.Models.AvailableBookListModel;
 import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
 import com.hp.bookaholic.EndUsers.Models.BooklistModel;
+import com.hp.bookaholic.EndUsers.Models.BuyBook_Model;
 import com.hp.bookaholic.EndUsers.Models.LoginModel;
 import com.hp.bookaholic.EndUsers.Models.SignupModel;
 import com.hp.bookaholic.admin.modelsAdmin.AdminLoginModel;
+import com.hp.bookaholic.admin.modelsAdmin.ApproveBook_Model;
+import com.hp.bookaholic.admin.modelsAdmin.Booklists_For_Approval_Model;
+import com.hp.bookaholic.admin.modelsAdmin.DeleteBookModel;
+import com.hp.bookaholic.admin.modelsAdmin.Lend_Requests_Model;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -52,10 +58,10 @@ public interface Apis {
 
 
     @GET("view_particular_book.php?")
-    Call<BookdetailsModel>BOOKDETAILS_MODEL_CALL(@Query("book_id")String id);
+    Call<BookdetailsModel> BOOKDETAILS_MODEL_CALL(@Query("book_id") String id);
 
     @GET("view_available_book.php")
-    Call<AvailableBookListModel>AVAILABLE_BOOK_LIST_MODEL_CALL();
+    Call<AvailableBookListModel> AVAILABLE_BOOK_LIST_MODEL_CALL();
 
 
     @FormUrlEncoded
@@ -64,6 +70,30 @@ public interface Apis {
                                                  @Field("password") String password);
 
 
+    @GET("booksForApproval.php")
+    Call<Booklists_For_Approval_Model> BOOKLISTS_FOR_APPROVAL_MODEL_CALL();
+
+    @GET("approve_book_by_admin.php?")
+    Call<ApproveBook_Model> APPROVE_BOOK_MODEL_CALL(@Query("book_id") String book_id,
+                                                    @Query("user_id") String user_id);
+
+    @GET("delete_book_request.php?")
+    Call<DeleteBookModel> DELETE_BOOK_MODEL_CALL(@Query("book_id") String book_id,
+                                                 @Query("user_id") String user_id);
+
+    @GET("available_status_flag_view.php")
+    Call<Lend_Requests_Model> LEND_REQUESTS_MODEL_CALL();
 
 
+    @FormUrlEncoded
+    @POST("buy_book.php?")
+    Call<BuyBook_Model> BUY_BOOK_MODEL_CALL(@Field("user_id") String user_id,
+                                            @Field("book_id") String book_id,
+                                            @Field("buy_date") String buy_date,
+                                            @Field("lend_price") String lend_price
+    );
+
+
+    @GET("book_available_set.php?")
+    Call<Avail_Set_model>AVAIL_SET_MODEL_CALL(@Query("book_id") String book_id);
 }

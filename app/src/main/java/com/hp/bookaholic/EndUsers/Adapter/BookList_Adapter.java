@@ -59,7 +59,7 @@ public class BookList_Adapter extends RecyclerView.Adapter<BookList_Adapter.Book
         holder.cardView.setOnClickListener(v -> {
 
             appPreferences.saveData("book_id", availableBookListModel.getAvailable_Details().get(position).getBook_id());
-            appPreferences.saveData("user_id", availableBookListModel.getAvailable_Details().get(position).getUser_id());
+            appPreferences.saveData("owner_id", availableBookListModel.getAvailable_Details().get(position).getUser_id());
 
             Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_book_dtails);
 

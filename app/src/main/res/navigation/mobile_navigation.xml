@@ -33,7 +33,11 @@
         android:id="@+id/book_dtails"
         android:name="com.hp.bookaholic.EndUsers.tabfrags.home.Book_dtails"
         android:label="fragment_book_dtails"
-        tools:layout="@layout/fragment_book_dtails" />
+        tools:layout="@layout/fragment_book_dtails" >
+        <action
+            android:id="@+id/action_book_dtails_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
     <fragment
         android:id="@+id/testffrag"
         android:name="com.hp.bookaholic.EndUsers.testffrag"
