@@ -118,7 +118,8 @@ public class Book_dtails extends Fragment {
                 public void onResponse(Call<BuyBook_Model> call, Response<BuyBook_Model> response) {
 
                     BuyBook_Model buyBook_model = response.body();
-                    if (buyBook_model.getStatus().equalsIgnoreCase("Inserted successfull")) {
+                    Toast.makeText(getContext(), buyBook_model.getStatus(), Toast.LENGTH_SHORT).show();
+                    if (buyBook_model.getStatus().equalsIgnoreCase("Inserted successfuly")) {
                         Toast.makeText(getContext(), "Request forwarded to admin for further processing", Toast.LENGTH_SHORT).show();
 
                         new Retro().getApi().AVAIL_SET_MODEL_CALL(bookdetailsModel.getBook_Details().get(0).getBook_id()).enqueue(new Callback<Avail_Set_model>() {
