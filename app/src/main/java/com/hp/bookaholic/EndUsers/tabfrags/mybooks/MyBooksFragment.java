@@ -2,14 +2,22 @@ package com.hp.bookaholic.EndUsers.tabfrags.mybooks;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.harishpadmanabh.apppreferences.AppPreferences;
+import com.hp.bookaholic.EndUsers.Models.MyBooksModel;
 import com.hp.bookaholic.R;
+import com.hp.bookaholic.Retro.Retro;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -17,6 +25,10 @@ import com.hp.bookaholic.R;
  */
 public class MyBooksFragment extends Fragment {
 
+
+    private TextView textHome;
+    private RecyclerView rViewbooklist;
+    private AppPreferences appPreferences;
 
     public MyBooksFragment() {
         // Required empty public constructor
@@ -27,11 +39,29 @@ public class MyBooksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.fragment_my_books, container, false);
+        View root = inflater.inflate(R.layout.fragment_my_books, container, false);
+        initView(root);
+        appPreferences = AppPreferences.getInstance(getContext(), getResources().getString(R.string.app_name));
+
+        new Retro().getApi().myBooksCall(appPreferences.getData("id")).enqueue(new Callback<MyBooksModel>() {
+            @Override
+            public void onResponse(Call<MyBooksModel> call, Response<MyBooksModel> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<MyBooksModel> call, Throwable t) {
+
+            }
+        });
 
 
         return root;
 
     }
 
+    private void initView(View root) {
+        textHome = root.findViewById(R.id.text_home);
+        rViewbooklist = root.findViewById(R.id.r_viewbooklist);
+    }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:translationZ="20dp"
+    android:id="@+id/itemlinear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.github.florent37.shapeofview.shapes.ArcView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:id="@+id/rootlay"
+        android:layout_margin="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:shape_arc_height="20dp"
+        app:shape_arc_position="bottom">
+
+        <!-- YOUR CONTENT -->
+        <include
+            layout="@layout/mybook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.github.florent37.shapeofview.shapes.ArcView>
+</LinearLayout>

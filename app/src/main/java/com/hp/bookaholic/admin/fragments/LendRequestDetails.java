@@ -20,6 +20,7 @@ import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
 import com.hp.bookaholic.R;
 import com.hp.bookaholic.Retro.Retro;
+import com.hp.bookaholic.admin.modelsAdmin.LendBookModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,7 +71,7 @@ public class LendRequestDetails extends Fragment {
             public void onResponse(Call<BookdetailsModel> call, Response<BookdetailsModel> response) {
                 bookdetailsModel = response.body();
 
-                appPreferences.saveData("user_id",bookdetailsModel.getBook_Details().get(0).getUser_id());
+                appPreferences.saveData("lenduser_id",bookdetailsModel.getBook_Details().get(0).getUser_id());
                 if(bookdetailsModel != null) {
                     if (bookdetailsModel.getStatus().equalsIgnoreCase("success")) {
                         Glide.with(getContext()).load(bookdetailsModel.getBook_Details().get(0).getPhoto()).into(bookimg);
@@ -110,9 +111,30 @@ public class LendRequestDetails extends Fragment {
         });
 
         lend.setOnClickListener(v -> {
-            Toast.makeText(getContext(), " Request passed to courier", Toast.LENGTH_SHORT).show();
 
-            Navigation.findNavController(v).navigate(R.id.action_lendRequestDetails_to_lendRequestFrag);
+            new Retro().getApi().lendThisBookCall(appPreferences.getData("book_id"),
+                    appPreferences.getData("lenduser_id")
+                    ).enqueue(new Callback<LendBookModel>() {
+                @Override
+                public void onResponse(Call<LendBookModel> call, Response<LendBookModel> response) {
+                    LendBookModel lendBookModel=response.body();
+                    if(lendBookModel.getStatus().equalsIgnoreCase("Updated  Successfully")){
+                        Toast.makeText(getContext(), " Request passed to courier", Toast.LENGTH_SHORT).show();
+                         Navigation.findNavController(v).navigate(R.id.action_lendRequestDetails_to_lendRequestFrag);
+
+                    }else
+                    {
+                        Toast.makeText(getContext(), "under processing", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LendBookModel> call, Throwable t) {
+                    Toast.makeText(getContext(), "LendBookModel api fail  "+t, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
 
         });
         reject.setOnClickListener(v -> {

@@ -7,11 +7,13 @@ import com.hp.bookaholic.EndUsers.Models.BookdetailsModel;
 import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.EndUsers.Models.BuyBook_Model;
 import com.hp.bookaholic.EndUsers.Models.LoginModel;
+import com.hp.bookaholic.EndUsers.Models.MyBooksModel;
 import com.hp.bookaholic.EndUsers.Models.SignupModel;
 import com.hp.bookaholic.admin.modelsAdmin.AdminLoginModel;
 import com.hp.bookaholic.admin.modelsAdmin.ApproveBook_Model;
 import com.hp.bookaholic.admin.modelsAdmin.Booklists_For_Approval_Model;
 import com.hp.bookaholic.admin.modelsAdmin.DeleteBookModel;
+import com.hp.bookaholic.admin.modelsAdmin.LendBookModel;
 import com.hp.bookaholic.admin.modelsAdmin.Lend_Requests_Model;
 
 import okhttp3.MultipartBody;
@@ -96,4 +98,16 @@ public interface Apis {
 
     @GET("book_available_set.php?")
     Call<Avail_Set_model>AVAIL_SET_MODEL_CALL(@Query("book_id") String book_id);
+
+
+    @GET("lend_request_set.php?")
+    Call<LendBookModel> lendThisBookCall(@Query("book_id") String book_id,
+                                         @Query("user_id") String user_id);
+
+
+
+
+    @GET("mybooks.php?")
+    Call<MyBooksModel> myBooksCall(@Query("user_id") String user_id);
+
 }
