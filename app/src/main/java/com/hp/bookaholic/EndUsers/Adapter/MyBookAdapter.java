@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -41,12 +42,19 @@ public class MyBookAdapter extends RecyclerView.Adapter<MyBookAdapter.MybookVH> 
 
         Glide.with(context).load(myBooksModel.getMyBook_Details().get(position).getPhoto()).into(holder.bookimg);
         holder.bookname.setText(myBooksModel.getMyBook_Details().get(position).getBook_name());
+holder.cardView.setOnClickListener(v -> {
 
+    appPreferences.saveData("returnbook_id",myBooksModel.getMyBook_Details().get(position).getBook_id());
+
+
+    Navigation.findNavController(v).navigate(R.id.action_myBooks_to_returnBookFragmnet);
+
+});
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return myBooksModel.getMyBook_Details().size();
     }
 
     class MybookVH extends RecyclerView.ViewHolder{

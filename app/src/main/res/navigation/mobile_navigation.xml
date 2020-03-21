@@ -47,5 +47,14 @@
         android:id="@+id/myBooks"
         android:name="com.hp.bookaholic.EndUsers.tabfrags.mybooks.MyBooksFragment"
         android:label="@string/mybooks"
-        tools:layout="@layout/fragment_my_books" />
+        tools:layout="@layout/fragment_my_books" >
+        <action
+            android:id="@+id/action_myBooks_to_returnBookFragmnet"
+            app:destination="@id/returnBookFragmnet" />
+    </fragment>
+    <fragment
+        android:id="@+id/returnBookFragmnet"
+        android:name="com.hp.bookaholic.EndUsers.tabfrags.mybooks.ReturnBookFragmnet"
+        android:label="fragment_return_book_fragmnet"
+        tools:layout="@layout/fragment_return_book_fragmnet" />
 </navigation>

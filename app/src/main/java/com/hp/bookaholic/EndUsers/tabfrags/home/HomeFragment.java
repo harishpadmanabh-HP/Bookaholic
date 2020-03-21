@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<AvailableBookListModel> call, Throwable t) {
-                Toast.makeText(getContext(), "API FAILURE :"+t, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "API FAILURE :"+t, Toast.LENGTH_SHORT).show();
 
             }
         });

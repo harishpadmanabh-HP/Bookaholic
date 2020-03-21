@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.harishpadmanabh.apppreferences.AppPreferences;
+import com.hp.bookaholic.EndUsers.Adapter.MyBookAdapter;
 import com.hp.bookaholic.EndUsers.Models.MyBooksModel;
 import com.hp.bookaholic.R;
 import com.hp.bookaholic.Retro.Retro;
@@ -47,11 +50,24 @@ public class MyBooksFragment extends Fragment {
             @Override
             public void onResponse(Call<MyBooksModel> call, Response<MyBooksModel> response) {
 
+                MyBooksModel myBooksModel=response.body();
+                if(myBooksModel.getStatus().equalsIgnoreCase("success"))
+                {
+
+                    rViewbooklist.setLayoutManager(new GridLayoutManager(getContext(),2));
+                    rViewbooklist.setAdapter(new MyBookAdapter(myBooksModel,getActivity()));
+
+                }else
+                {
+                    Toast.makeText(getContext(), "You have not got any books yet !!", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
 
             @Override
             public void onFailure(Call<MyBooksModel> call, Throwable t) {
-
+                Toast.makeText(getContext(), "MyBooksModel api fail "+t, Toast.LENGTH_SHORT).show();
             }
         });
 

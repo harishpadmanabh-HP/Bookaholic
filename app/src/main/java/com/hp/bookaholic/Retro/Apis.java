@@ -8,6 +8,8 @@ import com.hp.bookaholic.EndUsers.Models.BooklistModel;
 import com.hp.bookaholic.EndUsers.Models.BuyBook_Model;
 import com.hp.bookaholic.EndUsers.Models.LoginModel;
 import com.hp.bookaholic.EndUsers.Models.MyBooksModel;
+import com.hp.bookaholic.EndUsers.Models.ReturnBookModel;
+import com.hp.bookaholic.EndUsers.Models.ReturnDetailsModel;
 import com.hp.bookaholic.EndUsers.Models.SignupModel;
 import com.hp.bookaholic.admin.modelsAdmin.AdminLoginModel;
 import com.hp.bookaholic.admin.modelsAdmin.ApproveBook_Model;
@@ -110,4 +112,9 @@ public interface Apis {
     @GET("mybooks.php?")
     Call<MyBooksModel> myBooksCall(@Query("user_id") String user_id);
 
+    @GET("return_book.php?")
+    Call<ReturnBookModel> returnBookCall(@Query("book_id") String book_id);
+
+    @GET("view_return_book.php?")
+    Call<ReturnDetailsModel> returnDetailsCall(@Query("book_id") String book_id);
 }
