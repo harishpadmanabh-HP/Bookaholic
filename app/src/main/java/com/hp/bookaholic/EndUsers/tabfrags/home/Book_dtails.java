@@ -144,7 +144,7 @@ public class Book_dtails extends Fragment {
                         });
 
                     } else {
-                        Toast.makeText(getContext(), "Ooops! Something went Wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Ooops! "+buyBook_model.getStatus(), Toast.LENGTH_SHORT).show();
                     }
 
                 }

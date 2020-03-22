@@ -107,32 +107,13 @@ public class ReturnBookFragmnet extends Fragment {
                     {
                         Toast.makeText(getContext(), "Book set for return.Pass the book to admin after payment.", Toast.LENGTH_LONG).show();
 
-                        new Retro().getApi().returnDetailsCall(appPreferences.getData("returnbook_id")).enqueue(new Callback<ReturnDetailsModel>() {
-                            @Override
-                            public void onResponse(Call<ReturnDetailsModel> call, Response<ReturnDetailsModel> response) {
-                                ReturnDetailsModel returnDetailsModel=response.body();
-                                if(returnBookModel.getStatus().equalsIgnoreCase("success")){
-                                    total.setText(returnDetailsModel.getBuy_Details().get(0).getActual_pay_amount()+" Rs");
-                                    total.setVisibility(View.VISIBLE);
-
-
-                                }else
-                                {
-                                    Toast.makeText(getContext(), "Lend price cant be fetched now . Try Again later", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<ReturnDetailsModel> call, Throwable t) {
-                                Toast.makeText(getContext(), "ReturnDetailsModel api fail "+t, Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-
+                         total.setText("Payable amount :  "+returnBookModel.getPay_amount()+" RS");
+                         total.setVisibility(View.VISIBLE);
+                         returnbtn.setVisibility(View.GONE);
 
 
                     }else {
-                        Toast.makeText(getContext(), "OOPS !, Sorry, Please try again later.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "OOPS !, "+returnBookModel.getStatus(), Toast.LENGTH_SHORT).show();
                     }
 
 
