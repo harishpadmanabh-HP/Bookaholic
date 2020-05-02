@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.harishpadmanabh.apppreferences.AppPreferences;
+import com.hp.bookaholic.EndUsers.Login;
 import com.hp.bookaholic.R;
 import com.hp.bookaholic.admin.AdminLogin;
 
@@ -27,6 +28,7 @@ public class SettingsFrag extends Fragment {
         logout.setOnClickListener(v -> {
             AppPreferences appPreferences = AppPreferences.getInstance(getContext(), getResources().getString(R.string.app_name));
             appPreferences.clearData();
+         startActivity(new Intent(getContext(), Login.class));
         });
         admin.setOnClickListener(v -> {
 

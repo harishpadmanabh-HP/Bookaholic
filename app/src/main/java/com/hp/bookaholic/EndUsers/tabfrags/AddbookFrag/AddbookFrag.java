@@ -25,6 +25,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.harishpadmanabh.apppreferences.AppPreferences;
 import com.hp.bookaholic.BuildConfig;
 import com.hp.bookaholic.EndUsers.Models.AddBookModel;
 import com.hp.bookaholic.R;
@@ -69,6 +70,7 @@ public class AddbookFrag extends Fragment {
 
     private String pictureFilePath;
     private MultipartBody.Part filePart;
+    private AppPreferences appPreferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,6 +78,7 @@ public class AddbookFrag extends Fragment {
 
         initView(root);
         View rootView = root.findViewById(android.R.id.content);
+        appPreferences = AppPreferences.getInstance(getContext(), getResources().getString(R.string.app_name));
 
         //conecting all TextInputEditText as list
         final List<TextInputEditText> textInputEditTexts = Utils.findViewsWithType(
@@ -115,9 +118,8 @@ public class AddbookFrag extends Fragment {
                 RequestBody branchRB = RequestBody.create(MediaType.parse("text/plain"), branch.getText().toString());
 
 
-                //TODO : update user id
 
-                RequestBody uidRB = RequestBody.create(MediaType.parse("text/plain"),"1");
+                RequestBody uidRB = RequestBody.create(MediaType.parse("text/plain"),appPreferences.getData("id"));
                 RequestBody priceRB = RequestBody.create(MediaType.parse("text/plain"), price.getText().toString());
 
 

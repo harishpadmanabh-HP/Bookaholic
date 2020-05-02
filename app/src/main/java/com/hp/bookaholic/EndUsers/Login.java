@@ -33,6 +33,7 @@ import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
+import java.util.function.Function;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,6 +51,7 @@ public class Login extends AppCompatActivity {
     String input_password;
     String check;
     LoginModel  loginModel;
+
     private AppPreferences appPreferences;
 
     @Override
@@ -105,6 +107,9 @@ public class Login extends AppCompatActivity {
                          appPreferences.saveData("in_phone",loginModel.getUser_data().getPhone());
                          appPreferences.saveData("in_pass",loginModel.getUser_data().getPassword());
                          appPreferences.saveData("in_location",loginModel.getUser_data().getPostal_address());
+
+
+                         Utils.logDetails("id",loginModel.getUser_data().getUser_id());
 
                          Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
 

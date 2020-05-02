@@ -29,8 +29,8 @@
         app:layout_constraintGuide_begin="53dp" />
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="791dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:maxLength="10"
                         android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -84,7 +83,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:maxLength="10"
                         android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -130,6 +128,7 @@
                         android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
@@ -235,23 +234,24 @@
                         android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-               <Button
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="ADD PICTURE"
-                   android:id="@+id/addpic"
-                   android:layout_gravity="right"
-                   android:layout_margin="10dp"
-
-                   />
                 <Button
+                    android:id="@+id/addpic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Request book for approval"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:text="ADD PICTURE"
+
+                    />
+
+                <Button
                     android:id="@+id/requestbook"
-                    android:backgroundTint="#8BC34A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="140dp"
+                    android:backgroundTint="#8BC34A"
+                    android:text="Request book for approval"
 
                     />
 
